@@ -12,7 +12,6 @@ public class NiceSet {
             n = sc.nextInt();}
 
            int[] arr = new int [n];
-        
            System.out.println("Enter integers in the array");
            for (int i = 0; i < n; i++){
             if (sc.hasNext()) {
@@ -20,20 +19,17 @@ public class NiceSet {
             }   
            }
 
-           //Array Elemente
-           //for (int i = 0; i < n; i++);
-
-
+        //Initialisierung von S
         int s = 0;
         if(sc.hasNext()){
             n = sc.nextInt();
         }
 
-        //index out of bounds check machen
 
-        //for(){
 
-        //}
+        for(i=0;i< s;i++){
+            
+        }
 
         sc.close();
     }
