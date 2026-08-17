@@ -5,7 +5,8 @@ public class NiceSet {
         
         Scanner sc = new Scanner(System.in);
         
-        System.out.println("Array Size:"); //Initialisierung des Arrays
+        //Initialisierung des Arrays auf Basis des User Inputs
+        System.out.println("Array Size:");
         int n = 0;
         if(sc.hasNextInt()){
             n = sc.nextInt();}
@@ -23,8 +24,12 @@ public class NiceSet {
            //for (int i = 0; i < n; i++);
 
 
-        int s = sc.nextInt();
+        int s = 0;
+        if(sc.hasNext()){
+            n = sc.nextInt();
+        }
 
+        //index out of bounds check machen
 
         //for(){
 
