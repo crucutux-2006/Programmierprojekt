@@ -4,10 +4,9 @@ public class Mean{
 
         
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();  //n ist anzahl Zahlen
-
-        int i=0;
-        int [] arr = new int[i];
+        int n = sc.nextInt();  //n ist anzahl Zahlen / Größe Array
+        
+        int [] arr = new int[n];
 
         //Math.floor();
 
