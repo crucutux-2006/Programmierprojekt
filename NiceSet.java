@@ -8,18 +8,15 @@ public class NiceSet {
         
 
         Scanner sc = new Scanner(System.in);
-        
-        //Initialisierung S
-        int s = 0;
-        if(sc.hasNext()){
-            s = sc.nextInt();
-        }
 
         //Initialisierung Arraygröße
         System.out.println("Array Size:");
         int n = 0;                  //n ist Userinput
         if(sc.hasNextInt()){
             n = sc.nextInt();}
+
+        //Initialisierung S
+        int s = sc.nextInt();
 
             int i = 0;
             //Eingabewerte Array
@@ -36,7 +33,7 @@ public class NiceSet {
         Arrays.sort(arr);
         for(j = 0;j < s;j++){
             
-            Math.abs();
+            //Math.abs();
         }
 
         sc.close();
