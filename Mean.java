@@ -1,31 +1,30 @@
 import java.util.Scanner;
-import java.util.ArrayList;
-public class Mean{
-    public static void main(String[]args){
-
-        
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();  //n ist anzahl Zahlen / Größe Array
-        
-        int i;
-        int j;
-
-         int[] [] arr = new int[i][j];
-
-         for(i = 0;i < n;i++){
-            for(j = 0;i < n;j++) {
-
-                int mean = (i+j)/2;
-
-            }
-         }
-        
+    public class Mean {
+        public static void main(String[] args) {
 
 
+            Scanner sc = new Scanner(System.in);
+            int n = sc.nextInt();  //n ist anzahl Zahlen
 
-        //math.floor()
+            long[][] arr = new long[n][n];
 
-        sc.close();
+            //Math.floor();
 
-    }
-}
+            for (int i = 0; i < n; i++) {
+                   arr[i][i] = sc.nextInt();
+                }
+
+
+            for(int len= 2; len <= n; len++){
+            for(int i= 0;i <= n - len; i++){
+                int j = i + len - 1;
+                arr[i][j] = 0;
+                 for(int k = i; k <= j-1 ;k++){
+                     long links= arr[i][k];
+                     long rechts = arr[k+1][j];
+                     long kombi= (links + rechts)/2;
+
+                     arr[i][j]=Math.max(arr[i][j], kombi);
+                     } } }
+        System.out.println(arr[0][n-1]);
+        }}
