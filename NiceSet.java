@@ -3,9 +3,6 @@ import java.util.Arrays;
 
 public class NiceSet {
     public static void main(String[]args){
-        
-       
-        
 
         Scanner sc = new Scanner(System.in);
 
@@ -16,7 +13,7 @@ public class NiceSet {
             n = sc.nextInt();}
 
         //Initialisierung S
-        System.out.println("Enter S: ")
+        System.out.println("Enter S: ");
         int s = sc.nextInt();
 
             int i = 0;
@@ -30,13 +27,15 @@ public class NiceSet {
            }
 
         //Berechnung 
-        int j = 0;
         Arrays.sort(arr);
-        for(j = 0;j < s;j++){
-            
-            //Math.abs();
-        }
-
+        
+        long sum = 0;
+            for (i=0;i<s;i++){
+                    sum += (arr[i] - arr[n-1]);
+                }   
+               long sumabs = Math.abs(sum);
+        // System.out.println(Arrays.toString(arr)); //Sortiertes array wird ausgegeben
+        System.out.println(sumabs);
         sc.close();
     }
 }
