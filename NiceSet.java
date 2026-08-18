@@ -21,10 +21,12 @@ public class NiceSet {
 
         //S
        // System.out.println("S: ");
-        while (!st.hasMoreTokens()) {
-            st = new StringTokenizer(br.readLine());
+       while (st == null || !st.hasMoreTokens()) {
+            String line = br.readLine();
+            if (line == null) return;
+            st = new StringTokenizer(line);
         }
-        int s = Integer.parseInt(st.nextToken());
+        long s = Long.parseLong(st.nextToken());
 
         //Arrawerte
         //System.out.println("Arraywerte ");
