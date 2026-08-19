@@ -1,0 +1,7 @@
+ String value1 = r1.getContent().get(attributeIndex);
+        String value2 = r2.getContent().get(attributeIndex);
+
+
+        if(value1.equals(value2)) {
+            return 1.0;
+        }
