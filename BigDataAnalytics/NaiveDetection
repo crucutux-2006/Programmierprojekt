@@ -1,0 +1,13 @@
+for (int i = 0; i < records.size(); i++) {
+            for (int j = i + 1; j < records.size(); j++) {
+                Record r1 = records.get(i);
+                Record r2 = records.get(j);
+
+                double simScore = recSim.compare(r1, r2);
+                numComparisons++;
+
+                if (simScore >= this.threshold) {
+                    duplicates.add(new Duplicate(r1, r2));
+                }
+            }
+        }
