@@ -1,0 +1,33 @@
+// BEGIN SOLUTION
+
+        if(x==null || y==null){
+            return 0.0;
+        }
+
+        //n-grams für x
+        for(int i=0;i<=x.length()-n ;i++) {
+            ngramsX.add(x.substring(i, i + n));
+        }
+
+        //n-grams für y
+        for(int i=0;i<=y.length()-n ;i++) {
+            ngramsY.add(y.substring(i, i + n));
+        }
+
+        //Vereinigung
+        Set<String> union = new HashSet<>(ngramsX);
+        union.addAll(ngramsY);
+
+        if(union.isEmpty()){
+            return x.equals(y) ? 1.0 : 0.0;
+        }
+
+        //Schnittmenge
+        Set<String> intersection = new HashSet<>(ngramsX);
+        intersection.retainAll(ngramsY);
+
+        //Jaccard
+        res = (double) intersection.size() / union.size();
+
+
+        // END SOLUTION
