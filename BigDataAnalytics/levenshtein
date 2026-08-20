@@ -3,6 +3,7 @@
         char [] arrX = x.toCharArray();
         char [] arrY = y.toCharArray();
 
+        //Basisfälle:
         for (int i = 0; i <= m; i++) {
             arr[i][0] = i;
         }
@@ -10,20 +11,20 @@
         for (int j = 0; j <= n; j++) {
             arr[0][j] = j;
         }
-
-        for(int i = 1; i < m; i++) {
-            for(int j = 1; j < n; j++) {
+        //Berechnung
+        for(int i = 1; i <= m; i++) {
+            for(int j = 1; j <= n; j++) {
                 if(arrX[i-1] == arrY[j-1]) {
                     arr[i][j] = arr[i-1][j-1];
                 }
                 else {
-                    int insert = arr[i][j-1] + 1;
-                    int delete = arr[i-1][j]+1;
-                    int replace = arr[i-1][j-1]+1;
-                    arr[i][j] = Math.min(Math.min(insert, delete), replace);
+                    int insert = arr[i][j-1];
+                    int delete = arr[i-1][j];
+                    int replace = arr[i-1][j-1];
+                    arr[i][j] = Math.min(Math.min(insert, delete), replace)+1;
                 }
             }
         }
 
-        res = arr[m-1][n-1];
+        res =  1 - ((double) arr[m][n] / Math.max(m,n)); //levenshtein similarity
         // END SOLUTION
