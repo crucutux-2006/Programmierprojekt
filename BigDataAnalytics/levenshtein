@@ -1,0 +1,29 @@
+ // BEGIN SOLUTION
+        int [][] arr = new int[m+1][n+1];
+        char [] arrX = x.toCharArray();
+        char [] arrY = y.toCharArray();
+
+        for (int i = 0; i <= m; i++) {
+            arr[i][0] = i;
+        }
+
+        for (int j = 0; j <= n; j++) {
+            arr[0][j] = j;
+        }
+
+        for(int i = 1; i < m; i++) {
+            for(int j = 1; j < n; j++) {
+                if(arrX[i-1] == arrY[j-1]) {
+                    arr[i][j] = arr[i-1][j-1];
+                }
+                else {
+                    int insert = arr[i][j-1] + 1;
+                    int delete = arr[i-1][j]+1;
+                    int replace = arr[i-1][j-1]+1;
+                    arr[i][j] = Math.min(Math.min(insert, delete), replace);
+                }
+            }
+        }
+
+        res = arr[m-1][n-1];
+        // END SOLUTION
