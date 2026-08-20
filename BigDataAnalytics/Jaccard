@@ -1,8 +1,4 @@
-// BEGIN SOLUTION
-
-        if(x==null || y==null){
-            return 0.0;
-        }
+//BEGIN SOLUTION
 
         //n-grams für x
         for(int i=0;i<=x.length()-n ;i++) {
@@ -14,20 +10,20 @@
             ngramsY.add(y.substring(i, i + n));
         }
 
-        //Vereinigung
-        Set<String> union = new HashSet<>(ngramsX);
-        union.addAll(ngramsY);
-
-        if(union.isEmpty()){
-            return x.equals(y) ? 1.0 : 0.0;
+        if(ngramsX.isEmpty() && ngramsY.isEmpty()) {
+            return 0.0;
         }
 
-        //Schnittmenge
-        Set<String> intersection = new HashSet<>(ngramsX);
-        intersection.retainAll(ngramsY);
+        if(ngramsX.isEmpty() || ngramsY.isEmpty()){
+            return 1.0;
+        }
+
+
+        int size = ngramsX.size();
+        ngramsX.retainAll(ngramsY);
+        int size2 = ngramsX.size();
+
 
         //Jaccard
-        res = (double) intersection.size() / union.size();
-
-
-        // END SOLUTION
+        res = size2 / (double) (size + ngramsY.size() - size2);
+    //END SOLUTION
