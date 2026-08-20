@@ -1,7 +1,5 @@
  // BEGIN SOLUTION
         int [][] arr = new int[m+1][n+1];
-        char [] arrX = x.toCharArray();
-        char [] arrY = y.toCharArray();
 
         //Basisfälle:
         for (int i = 0; i <= m; i++) {
@@ -14,7 +12,7 @@
         //Berechnung
         for(int i = 1; i <= m; i++) {
             for(int j = 1; j <= n; j++) {
-                if(arrX[i-1] == arrY[j-1]) {
+                if(x.charAt(i-1) == y.charAt(j-1)) {
                     arr[i][j] = arr[i-1][j-1];
                 }
                 else {
@@ -28,3 +26,6 @@
 
         res =  1 - ((double) arr[m][n] / Math.max(m,n)); //levenshtein similarity
         // END SOLUTION
+        return res;
+    }
+}
