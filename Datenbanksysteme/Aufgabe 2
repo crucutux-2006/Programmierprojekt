@@ -46,6 +46,5 @@
 
     // Aufgabe 2) f)
     public static IntStream makeStreamOf(String[] strings) {
-        // TODO
-        return null;
+          return Arrays.stream(strings).flatMapToInt(str -> str.chars());
     }
