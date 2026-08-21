@@ -1,0 +1,51 @@
+// Aufgabe 2) a)
+    public static <E> Stream<E> flatStreamOf(List<List<E>> list) {
+        list.stream().flatMap(l -> l.stream()).forEach(System.out::println);
+        return null;
+    }
+
+    // Aufgabe 2) b)
+    public static int bitsOf(IntStream stream) {
+        if(stream != null) {
+            return stream.reduce(0, (a,b) -> a|b);
+        }
+        return 0;
+    }
+
+    // Aufgabe 2) c)
+    public static <E extends Comparable<? super E>> E minOf(List<List<E>> list) {
+        if (list == null) {
+            throw new IllegalArgumentException();
+        }
+       return list.parallelStream()
+                .flatMap(Collection::stream)
+                .min(Comparator.naturalOrder())
+                .orElseThrow();
+    }
+
+    // Aufgabe 2) d)
+    public static <E> E lastWithOf(Stream<E> stream, Predicate<? super E> predicate) {
+        E lastElement = stream.filter(predicate).reduce((a, b) -> b).orElseThrow();
+        return lastElement;
+    }
+
+    // Aufgabe 2) e)
+    public static <E> Set<E> findOfCount(Stream<E> stream, int count) {
+        // TODO
+    if(stream == null) {
+        return Set.of();
+    }
+    return stream
+            .collect(Collectors.groupingBy(e->e, Collectors.counting()))
+            .entrySet()
+            .stream()
+            .filter(entry -> entry.getValue() == count)
+            .map(Map.Entry::getKey)
+            .collect(Collectors.toSet());
+    }
+
+    // Aufgabe 2) f)
+    public static IntStream makeStreamOf(String[] strings) {
+        // TODO
+        return null;
+    }
