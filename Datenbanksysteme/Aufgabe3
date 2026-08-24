@@ -1,0 +1,30 @@
+// Aufgabe 3) a)
+    public static Stream<String> fileLines(String path) throws IOException {
+        String p = "home/Crucutux/Documents/1.Uni/2.Semester/Programmierpraktikum/3.Datenbanksysteme/AGDBS/NaturalGasBilling.csv";
+        BufferedReader reader = Files.newBufferedReader(Path.of(p));
+        return reader.lines()
+                        .skip(1)
+                        .sequential()
+                        .onClose(() -> {
+                            try{
+                                reader.close();
+                                System.out.println("Reader was closed");
+                                }catch(IOException e) {
+                                    throw new UncheckedIOException(e);
+                                    }
+                        });
+    }
+
+    // Aufgabe 3) b)
+    public static double averageCost(Stream<String> lines) {
+        return lines.mapToDouble(zeile -> {
+            String[] t = zeile.split(",");
+            return Double.parseDouble(t[13]);
+        }).average().orElse(0.0);
+    }
+
+
+    // Aufgabe 3) c)
+    public static long countCleanEnergyLevy(Stream<String> lines) {
+        // TODO
+        return 0L;
